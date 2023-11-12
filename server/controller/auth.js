@@ -47,5 +47,17 @@ const signup = async (req, res) => {
     console.log(err.message);
     if (err) throw err;
   }
-};
-export { login, signup };
+}
+const logout = (req,res)=>{
+  try{
+     res.cookie("password", "", {
+       httpOnly: true,
+       expires: new Date(0),
+     });
+     res.status(200).json("user logged out successfully");
+  }catch(err){
+    console.log(err)
+    res.status(400).json("error ocuured ")
+  }
+}
+export { login, signup, logout };

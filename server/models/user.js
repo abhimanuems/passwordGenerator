@@ -10,6 +10,12 @@ const userSchema = mongoose.Schema({
     type: String,
     require: false,
   },
+  savedPassword: [
+    {
+      password: String,
+      field: String,
+    },
+  ],
 });
 
 const User = mongoose.model("user",userSchema);
